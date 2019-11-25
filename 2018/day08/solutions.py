@@ -12,7 +12,7 @@ def parse(s):
         sub_metas.append(sub_meta)
     metas, s = s[:num_metas], s[num_metas:]
     total += sum(metas)
-    meta_sum = total if not children else sum(meta[i - 1] for i in sub_metas if i <= len(meta))
+    meta_sum = total if not children else sum(sub_metas[i - 1] for i in metas if i <= len(sub_metas))
     return total, meta_sum, s
 
 
